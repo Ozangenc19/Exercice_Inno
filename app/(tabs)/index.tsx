@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Button } from 'react-native';
 import WelcomeMessage from '../WelcomeMessage';
-import { Link } from 'expo-router';
+import { Link, useRouter } from 'expo-router';
 import LoginStatus from '../LoginStatus';
+
+
 
 export default function Index() {
   // Utilisation de l'état pour suivre l'état de connexion
@@ -13,7 +15,18 @@ export default function Index() {
     setIsLoggedIn(prevState => !prevState);
   };
 
+  const router = useRouter();
+
+    const goToDetails = () => {
+      router.push('/Personnage/42');
+    };
   return (
+    
+  
+   
+      
+    
+    
     <View 
       style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
     >
@@ -24,7 +37,11 @@ export default function Index() {
         onPress={toggleLogin} 
       />
       <Link href="/About">Aller à la page à propos</Link>
-    </View>
+      <Link href={"/Personnage/42"}>Acceder à son personnage</Link>
+      <Button title="Go to Perso" onPress={goToDetails} />
+      <Button title="Voir les perso DBZ" onPress={() => router.push('/DragonBallCharacters')} />
+     
+      </View>
   );
 }
 
