@@ -17,7 +17,7 @@ const DragonBallCharacters = () => {
 
   const renderItem = ({ item }: { item: Character }) => (
     <View style={styles.item}>
-      <Text style={styles.text}>{item.name}</Text>
+      <Text style={styles.name}>{item.name}</Text>
     </View>
   );
 
@@ -40,10 +40,14 @@ const styles = StyleSheet.create({
   },
   item: {
     padding: 10,
+    marginVertical: 5,
+    backgroundColor: '#f9f9f9',
+    borderRadius: 5,
   },
-  text: {
-    fontSize: 18,
-  },
+  name: {
+    fontSize: 26,
+    fontWeight: 'bold',
+  }
 });
 
 export default DragonBallCharacters;

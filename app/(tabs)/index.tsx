@@ -3,6 +3,8 @@ import { View, StyleSheet, Button } from 'react-native';
 import WelcomeMessage from '../WelcomeMessage';
 import { Link, useRouter } from 'expo-router';
 import LoginStatus from '../LoginStatus';
+import ApiDataFetcher from '../ApiDataFetcher';
+import DragonBallCharacters from '../DragonBallCharacters';
 
 
 
@@ -19,6 +21,9 @@ export default function Index() {
 
     const goToDetails = () => {
       router.push('/Personnage/42');
+    };
+    const goToApi = () => {
+      router.push('/ApiDataFetcher');
     };
   return (
     
@@ -40,6 +45,12 @@ export default function Index() {
       <Link href={"/Personnage/42"}>Acceder à son personnage</Link>
       <Button title="Go to Perso" onPress={goToDetails} />
       <Button title="Voir les perso DBZ" onPress={() => router.push('/DragonBallCharacters')} />
+      <Button title="Go to Donnée" onPress={goToApi} />
+      
+      
+      <Button title="Accèder à l'interaction" onPress={() => router.push('/InputInteraction')} ></Button>
+  
+      
      
       </View>
   );
